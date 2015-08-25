@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 26-03-2012 12:57:48 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="mapeo.Persona" table="persona" schema="public">
+        <id name="perRut" type="string">
+            <column name="per_rut" length="8" />
+            <generator class="assigned" />
+        </id>
+        <property name="perNombre" type="string">
+            <column name="per_nombre" length="50" />
+        </property>
+        <property name="perApellido" type="string">
+            <column name="per_apellido" length="50" />
+        </property>
+        <property name="perDireccion" type="string">
+            <column name="per_direccion" length="50" />
+        </property>
+        <property name="perFono" type="string">
+            <column name="per_fono" length="20" />
+        </property>
+        <property name="perEmail" type="string">
+            <column name="per_email" length="50" />
+        </property>
+        <property name="perFnacimiento" type="date">
+            <column name="per_fnacimiento" length="13" />
+        </property>
+        <set name="clientes" inverse="true">
+            <key>
+                <column name="per_rut" length="8" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="mapeo.Cliente" />
+        </set>
+        <set name="trabajadors" inverse="true">
+            <key>
+                <column name="per_rut" length="8" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="mapeo.Trabajador" />
+        </set>
+    </class>
+</hibernate-mapping>

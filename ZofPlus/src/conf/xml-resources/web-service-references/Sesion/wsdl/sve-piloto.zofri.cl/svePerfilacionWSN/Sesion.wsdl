@@ -1,0 +1,302 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<s0:definitions name="SesionServiceDefinitions" targetNamespace="http://cl/zofri/sve/prf/wsn" xmlns="" xmlns:s0="http://schemas.xmlsoap.org/wsdl/" xmlns:s1="http://cl/zofri/sve/prf/wsn" xmlns:s2="cl.zofri.sve" xmlns:s3="http://schemas.xmlsoap.org/wsdl/soap/">
+  <s0:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="cl.zofri.sve" xmlns:s0="http://schemas.xmlsoap.org/wsdl/" xmlns:s1="http://cl/zofri/sve/prf/wsn" xmlns:s2="cl.zofri.sve" xmlns:s3="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="java:cl.zofri.sve.utl.bo"/>
+      <xs:element name="respuesta" type="java:Respuesta" xmlns:java="java:cl.zofri.sve.utl.bo"/>
+      <xs:element name="token" type="xs:string"/>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="java:cl.zofri.sve.prf.eo" xmlns:s0="http://schemas.xmlsoap.org/wsdl/" xmlns:s1="http://cl/zofri/sve/prf/wsn" xmlns:s2="cl.zofri.sve" xmlns:s3="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="java:cl.zofri.sve.app.eo"/>
+      <xs:complexType name="LoginEO">
+        <xs:annotation>
+          <xs:documentation>/** 
+ * Objeto de Entidad que define la estructura para el Login de usuarios
+ * @author     Lucas Trípodi
+ * @version    1.0
+ * UC:  
+ */</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="1" name="SesionEO" nillable="true" type="java:SesionEO" xmlns:java="java:cl.zofri.sve.prf.eo"/>
+          <xs:element minOccurs="1" name="UsuarioLoginEO" nillable="true" type="java:UsuarioLoginEO" xmlns:java="java:cl.zofri.sve.prf.eo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SesionEO">
+        <xs:annotation>
+          <xs:documentation>/** 
+ * Objeto de Entidad que define la estructura para la Sesión de usuarios
+ * @author     Lucas Trípodi
+ * @version    1.0
+ * UC: 
+ */</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="1" name="CodigoMensaje" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="1" name="Estado" nillable="true" type="xs:boolean"/>
+          <xs:element minOccurs="1" name="FechaIngreso" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="1" name="FechaUltimoIngreso" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="1" name="IdUsuario" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="1" name="RutAgenciaAduana" nillable="true" type="java:RutEO" xmlns:java="java:cl.zofri.sve.app.eo"/>
+          <xs:element minOccurs="1" name="RutEmpresa" nillable="true" type="java:RutEO" xmlns:java="java:cl.zofri.sve.app.eo"/>
+          <xs:element minOccurs="1" name="TokenMascara" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="UsuarioLoginEO">
+        <xs:annotation>
+          <xs:documentation>/** 
+ * Objeto de Entidad que define la estructura para un Usuario de sesión
+ * @author     Leandro Gianotti
+ * @version    1.0
+ * UC: 
+ */</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="1" name="Apellido" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="1" name="DireccionEmpresa" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="1" name="FechaContratoEmpresa" nillable="true" type="xs:dateTime"/>
+          <xs:element minOccurs="1" name="IdUsuario" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="1" name="Mail" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="1" name="Nombre" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="1" name="NumeroContratoEmpresa" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="1" name="Profesion" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="1" name="RazonSocialEmpresa" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="1" name="RutUsuario" nillable="true" type="java:RutEO" xmlns:java="java:cl.zofri.sve.app.eo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RespuestaEO">
+        <xs:annotation>
+          <xs:documentation>/** 
+ * Objeto de Entidad que contiene la estructura de respuesta estandar para un elemento del negocio 
+ * @author     Leandro Gianotti
+ * @version    1.0
+ * UC: 
+ */</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="1" name="CodigoRespuesta" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="1" name="SeveridadRespuesta" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="1" name="TextoRespuesta" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="java:cl.zofri.sve.utl.bo" xmlns:s0="http://schemas.xmlsoap.org/wsdl/" xmlns:s1="http://cl/zofri/sve/prf/wsn" xmlns:s2="cl.zofri.sve" xmlns:s3="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="Respuesta">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="resCodigo" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="1" name="resMensaje" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="1" name="resSeveridad" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://cl/zofri/sve/prf/wsn" xmlns:s0="http://schemas.xmlsoap.org/wsdl/" xmlns:s1="http://cl/zofri/sve/prf/wsn" xmlns:s2="cl.zofri.sve" xmlns:s3="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="java:cl.zofri.sve.prf.eo"/>
+      <xs:import namespace="java:cl.zofri.sve.app.eo"/>
+      <xs:element name="finalizarAuditoria">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="idActividadAuditada" nillable="true" type="xs:long"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="finalizarAuditoriaResponse">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="login">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="usuario" type="xs:string"/>
+            <xs:element name="clave" type="xs:string"/>
+            <xs:element name="rutEmpresa" type="java:RutEO" xmlns:java="java:cl.zofri.sve.app.eo"/>
+            <xs:element name="rutAgencia" type="java:RutEO" xmlns:java="java:cl.zofri.sve.app.eo"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="loginResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="java:LoginEO" xmlns:java="java:cl.zofri.sve.prf.eo"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="cambiarContrasenia">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="claveActual" type="xs:string"/>
+            <xs:element name="claveNueva" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="cambiarContraseniaResponse">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="generarNuevaContraseniaAleatoria">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="rutUsuario" type="java:RutEO" xmlns:java="java:cl.zofri.sve.app.eo"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="generarNuevaContraseniaAleatoriaResponse">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="cerrarSesion">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="tokenSesion" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="cerrarSesionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="java:RespuestaEO" xmlns:java="java:cl.zofri.sve.prf.eo"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="java:cl.zofri.sve.app.eo" xmlns:s0="http://schemas.xmlsoap.org/wsdl/" xmlns:s1="http://cl/zofri/sve/prf/wsn" xmlns:s2="cl.zofri.sve" xmlns:s3="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="RutEO">
+        <xs:sequence>
+          <xs:element minOccurs="1" name="Dv" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="1" name="Nro" nillable="true" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </s0:types>
+  <s0:message name="finalizarAuditoria">
+    <s0:part element="s1:finalizarAuditoria" name="parameters"/>
+    <s0:part element="s2:token" name="token"/>
+  </s0:message>
+  <s0:message name="finalizarAuditoriaResponse">
+    <s0:part element="s1:finalizarAuditoriaResponse" name="parameters"/>
+    <s0:part element="s2:token" name="token"/>
+    <s0:part element="s2:respuesta" name="respuesta"/>
+  </s0:message>
+  <s0:message name="login">
+    <s0:part element="s1:login" name="parameters"/>
+    <s0:part element="s2:token" name="token"/>
+  </s0:message>
+  <s0:message name="loginResponse">
+    <s0:part element="s1:loginResponse" name="parameters"/>
+    <s0:part element="s2:token" name="token"/>
+    <s0:part element="s2:respuesta" name="respuesta"/>
+  </s0:message>
+  <s0:message name="cambiarContrasenia">
+    <s0:part element="s1:cambiarContrasenia" name="parameters"/>
+    <s0:part element="s2:token" name="token"/>
+  </s0:message>
+  <s0:message name="cambiarContraseniaResponse">
+    <s0:part element="s1:cambiarContraseniaResponse" name="parameters"/>
+    <s0:part element="s2:token" name="token"/>
+    <s0:part element="s2:respuesta" name="respuesta"/>
+  </s0:message>
+  <s0:message name="generarNuevaContraseniaAleatoria">
+    <s0:part element="s1:generarNuevaContraseniaAleatoria" name="parameters"/>
+  </s0:message>
+  <s0:message name="generarNuevaContraseniaAleatoriaResponse">
+    <s0:part element="s1:generarNuevaContraseniaAleatoriaResponse" name="parameters"/>
+    <s0:part element="s2:respuesta" name="respuesta"/>
+  </s0:message>
+  <s0:message name="cerrarSesion">
+    <s0:part element="s1:cerrarSesion" name="parameters"/>
+  </s0:message>
+  <s0:message name="cerrarSesionResponse">
+    <s0:part element="s1:cerrarSesionResponse" name="parameters"/>
+    <s0:part element="s2:token" name="token"/>
+    <s0:part element="s2:respuesta" name="respuesta"/>
+  </s0:message>
+  <s0:portType name="Sesion">
+    <s0:operation name="finalizarAuditoria" parameterOrder="parameters token respuesta">
+      <s0:input message="s1:finalizarAuditoria"/>
+      <s0:output message="s1:finalizarAuditoriaResponse"/>
+    </s0:operation>
+    <s0:operation name="login" parameterOrder="parameters token respuesta">
+      <s0:input message="s1:login"/>
+      <s0:output message="s1:loginResponse"/>
+    </s0:operation>
+    <s0:operation name="cambiarContrasenia" parameterOrder="parameters token respuesta">
+      <s0:input message="s1:cambiarContrasenia"/>
+      <s0:output message="s1:cambiarContraseniaResponse"/>
+    </s0:operation>
+    <s0:operation name="generarNuevaContraseniaAleatoria" parameterOrder="parameters respuesta">
+      <s0:input message="s1:generarNuevaContraseniaAleatoria"/>
+      <s0:output message="s1:generarNuevaContraseniaAleatoriaResponse"/>
+    </s0:operation>
+    <s0:operation name="cerrarSesion" parameterOrder="parameters token respuesta">
+      <s0:input message="s1:cerrarSesion"/>
+      <s0:output message="s1:cerrarSesionResponse"/>
+    </s0:operation>
+  </s0:portType>
+  <s0:binding name="SesionServiceSoapBinding" type="s1:Sesion">
+    <s3:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <s0:operation name="finalizarAuditoria">
+      <s3:operation style="document"/>
+      <s0:input>
+        <s3:body parts="parameters" use="literal"/>
+        <s3:header message="s1:finalizarAuditoria" part="token" use="literal"/>
+      </s0:input>
+      <s0:output>
+        <s3:body parts=" " use="literal"/>
+        <s3:header message="s1:finalizarAuditoriaResponse" part="token" use="literal"/>
+        <s3:header message="s1:finalizarAuditoriaResponse" part="respuesta" use="literal"/>
+      </s0:output>
+    </s0:operation>
+    <s0:operation name="login">
+      <s3:operation style="document"/>
+      <s0:input>
+        <s3:body parts="parameters" use="literal"/>
+        <s3:header message="s1:login" part="token" use="literal"/>
+      </s0:input>
+      <s0:output>
+        <s3:body parts="parameters" use="literal"/>
+        <s3:header message="s1:loginResponse" part="token" use="literal"/>
+        <s3:header message="s1:loginResponse" part="respuesta" use="literal"/>
+      </s0:output>
+    </s0:operation>
+    <s0:operation name="cambiarContrasenia">
+      <s3:operation style="document"/>
+      <s0:input>
+        <s3:body parts="parameters" use="literal"/>
+        <s3:header message="s1:cambiarContrasenia" part="token" use="literal"/>
+      </s0:input>
+      <s0:output>
+        <s3:body parts=" " use="literal"/>
+        <s3:header message="s1:cambiarContraseniaResponse" part="token" use="literal"/>
+        <s3:header message="s1:cambiarContraseniaResponse" part="respuesta" use="literal"/>
+      </s0:output>
+    </s0:operation>
+    <s0:operation name="generarNuevaContraseniaAleatoria">
+      <s3:operation style="document"/>
+      <s0:input>
+        <s3:body parts="parameters" use="literal"/>
+      </s0:input>
+      <s0:output>
+        <s3:body parts=" " use="literal"/>
+        <s3:header message="s1:generarNuevaContraseniaAleatoriaResponse" part="respuesta" use="literal"/>
+      </s0:output>
+    </s0:operation>
+    <s0:operation name="cerrarSesion">
+      <s3:operation style="document"/>
+      <s0:input>
+        <s3:body parts="parameters" use="literal"/>
+      </s0:input>
+      <s0:output>
+        <s3:body parts="parameters" use="literal"/>
+        <s3:header message="s1:cerrarSesionResponse" part="token" use="literal"/>
+        <s3:header message="s1:cerrarSesionResponse" part="respuesta" use="literal"/>
+      </s0:output>
+    </s0:operation>
+  </s0:binding>
+  <s0:service name="SesionService">
+    <s0:port binding="s1:SesionServiceSoapBinding" name="SesionSoapPort">
+      <s3:address location="http://sve-piloto.zofri.cl:80/svePerfilacionWSN/Sesion"/>
+    </s0:port>
+  </s0:service>
+</s0:definitions>

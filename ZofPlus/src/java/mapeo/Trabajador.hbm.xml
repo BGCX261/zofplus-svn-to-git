@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 26-03-2012 12:57:48 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="mapeo.Trabajador" table="trabajador" schema="public">
+        <id name="perRut" type="string">
+            <column name="per_rut" length="8" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="persona" class="mapeo.Persona" update="false" insert="false" fetch="select">
+            <column name="per_rut" length="8" not-null="true" unique="true" />
+        </many-to-one>
+        <many-to-one name="empresa" class="mapeo.Empresa" fetch="select">
+            <column name="emp_rut" length="20" not-null="true" />
+        </many-to-one>
+        <property name="areaTrabajo" type="string">
+            <column name="area_trabajo" length="50" />
+        </property>
+        <property name="fechaContrato" type="date">
+            <column name="fecha_contrato" length="13" />
+        </property>
+        <property name="pass" type="string">
+            <column name="pass" length="32" />
+        </property>
+    </class>
+</hibernate-mapping>

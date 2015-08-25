@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+    <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+    <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/zofplus</property>
+    <property name="hibernate.connection.username">ccastro</property>
+    <property name="hibernate.connection.password">pajilla</property>
+    <mapping resource="mapeo/Tarjeta.hbm.xml"/>
+    <mapping resource="mapeo/Cabecera201.hbm.xml"/>
+    <mapping resource="mapeo/Trabajador.hbm.xml"/>
+    <mapping resource="mapeo/ExtOzf201.hbm.xml"/>
+    <mapping resource="mapeo/Familia.hbm.xml"/>
+    <mapping resource="mapeo/OrdenDeCompra.hbm.xml"/>
+    <mapping resource="mapeo/Cabecera101.hbm.xml"/>
+    <mapping resource="mapeo/ExtRdp201.hbm.xml"/>
+    <mapping resource="mapeo/Persona.hbm.xml"/>
+    <mapping resource="mapeo/Ext101.hbm.xml"/>
+    <mapping resource="mapeo/Galpon.hbm.xml"/>
+    <mapping resource="mapeo/Empresa.hbm.xml"/>
+    <mapping resource="mapeo/Item.hbm.xml"/>
+    <mapping resource="mapeo/DocumentoAdjunto.hbm.xml"/>
+    <mapping resource="mapeo/Zfe101.hbm.xml"/>
+    <mapping resource="mapeo/Producto.hbm.xml"/>
+    <mapping resource="mapeo/Rdp101.hbm.xml"/>
+    <mapping resource="mapeo/Proveedor.hbm.xml"/>
+    <mapping resource="mapeo/NotaDeVenta.hbm.xml"/>
+    <mapping resource="mapeo/Cliente.hbm.xml"/>
+    <mapping resource="mapeo/ExtZfe201.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

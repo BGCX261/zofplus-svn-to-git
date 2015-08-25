@@ -1,0 +1,472 @@
+@charset "utf-8";
+html {
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #666666;
+	font-size: 12px;
+}
+body {
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	background-image: url(../img/fondo_principal_deg.png);
+	background-repeat:  repeat-x;
+}
+hr {
+	padding: 0px;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #91D2D2;
+	border-top-style: none;
+	border-right-style: none;
+	border-left-style: none;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 5px;
+	margin-left: 0px;
+}
+
+/* para el header 2 H de los nombres de las cosas y sin . porque es para el elemento h2*/
+h2{
+    font-size:220%;
+    border-style: ridge;    
+    position:relative;
+    color:#990000;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+h2 span{
+	position:absolute;
+	display:block;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+	background:url(gradient_1.png) repeat-x;
+}
+/*ESTO ES PARA LOS BROWSER QUE NO SOPORTAN TRANSPARENCIAS EN CSS*/
+* html h2 span{
+	background-color:#fff;
+	back\ground-color:transparent;
+	background-image: url(none.gif);
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="gradient_1.png", sizingMethod="scale");
+}
+/*FIN PARA LOS NAVEGADORES QUE NO SOPORTAN TRANSPARENCIAS EN CSS*/
+
+
+.contenedor {
+	height: 100%;
+        
+}
+.contenido {
+	min-width: 900px;
+	padding-bottom: 300px;
+	background-image: url(../img/logodiagonal3.png);
+	background-repeat:  repeat;
+	padding-top: 10px;
+	padding-right: 30px;
+	padding-left: 30px;
+        height: 60%;
+	/*padding-bottom: 128px;*/
+}
+.cabecera {
+	height: 56px;
+	min-width: 900px;
+	padding-top: 0px;
+	padding-right: 30px;
+	padding-bottom: 0px;
+	padding-left: 30px;
+	background-image: url(../img/header.png);
+	background-repeat:  repeat-x;
+	color: #FFFFFF;
+        position: relative;
+	z-index: 30;
+}
+.contenedor_central {
+	padding: 10px;
+	width: 80%;
+	margin-right: auto;
+	margin-left: auto;
+	background-image: url(../img/fondo_caja_central.png);
+	-moz-border-radius: 8px 15px 15px 8px;
+	-webkit-border-radius: 8px 15px 15px 8px;
+	color: #FFFFFF;
+	margin-top: 40px;/* modificado antes era 10px ahora debe ser mas para que alcanze el menu*/
+        padding-bottom: 30px; /* modificado antes era 10px ahora debe ser mas para que se vean las letras de abajo*/
+}
+
+.pie {
+	height: 60px;
+	padding-top: 38px;
+	text-align: center;
+	font-size: 10px;
+	color: #666666;
+	position: relative;
+	margin-top: -95px;
+	clear: both;
+	background-image: url(../img/pie.png);
+	background-repeat: repeat-x;
+	background-color: #FFFFFF;
+}
+
+/*                  TODO ESTO PARA LA GENERACION DE EL MENU DINAMICO EN CSS*/
+
+/*la posicion de el menu*/
+ul.menu
+{
+	list-style:none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	margin: 0px;
+        /*padding es el lugar donde se escribe*/
+        padding: 18px 0px 0px 0px;
+
+
+
+
+}
+ul.menu li
+{
+	position:relative;
+	float: left;
+}
+ul.menu ul /* sub menus despues del segundo nives*/
+{
+	position:absolute;
+	display:none;
+	list-style:none;
+	left: 131px;
+	top: -5px;
+}
+ul.menu li:hover > ul
+{
+	display:block;
+}
+
+ul.menu> li > ul /* Solo para los ul debajo de los li de primer nivel. */
+{
+	position:absolute;
+	left:-41px;
+	top:26px;
+	display:none;
+	list-style:none;
+	text-indent: 0px;
+}
+ul.menu > li /* Sólo para li de primer nivel */
+{
+	display:inline;
+
+}
+
+/*hace la raya de separacion de los menu*/
+.fondo_menu_principal {        
+	text-align: center;
+	padding-top: 5px;
+	padding-right: 10px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	color: #FFFFFF;
+	float: left;
+	-moz-border-radius: 6px 6px 0px 0px;
+	-webkit-border-radius: 6px 6px 0px 0px;
+}
+
+.fondo_menu_principal a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.fondo_menu_principal:hover {
+	color: #FFFFFF;
+	background-color: #FF9933;
+	background-image: url(../img/fondo_caja_menu.png);
+}
+
+
+.fodo_submenu {
+	font-weight: normal;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	text-align: left;
+	font-size: 11px;
+	/*color: #666666;*/
+        color: #FFFFFF;
+	width: 150px;
+}
+
+.fodo_submenu:hover {
+	background-color: #FFFF00;
+	background-image: url(../img/fondo_caja_menu.png);
+}
+
+.menu  hr {
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	border-top-color: #666666;
+	border-right-color: #666666;
+	border-bottom-color: #666666;
+	border-left-color: #666666;
+	height: 2px;
+	margin-bottom: -2px;
+}
+.caja_submenu {
+        z-index: 10;
+	float: left;
+	background-image: url(../img/fondo_caja_menu_rojo.png);
+	padding-bottom: 4px;
+	-moz-border-radius: 0px 6px 6px 6px;
+	-webkit-border-radius: 0px 6px 6px 6px;
+}
+.caja_submenu a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.form_text {
+	color: #666666;
+	padding-top: 4px;
+	padding-right: 8px;
+	padding-bottom: 4px;
+	padding-left: 8px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	-moz-border-radius: 2px 2px 2px 2px;
+	-webkit-border-radius: 2px 2px 2px 2px;
+}
+.form_boton {
+	background-image: url(../img/fondo_boton.png);
+	background-repeat:  repeat-x;
+	background-color: #c60210;
+	color: #FFFFFF;
+	font-weight: bold;
+	padding-top: 4px;
+	padding-right: 8px;
+	padding-bottom: 4px;
+	padding-left: 8px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	-moz-border-radius: 2px 8px 2px 8px;
+	-webkit-border-radius: 2px 8px 2px 8px;
+}
+.form_boton:hover {
+	background-color: #d64c55;
+	background-image: url(../img/fondo_boton.png);
+}
+.form_texarea {
+	overflow: auto;
+	color: #666666;
+	padding-top: 4px;
+	padding-right: 8px;
+	padding-bottom: 4px;
+	padding-left: 8px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	-moz-border-radius: 2px 2px 2px 2px;
+	-webkit-border-radius: 2px 2px 2px 2px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.form_select {
+	overflow: auto;
+	color: #666666;
+	padding-top: 4px;
+	padding-right: 8px;
+	padding-bottom: 4px;
+	padding-left: 8px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	-moz-border-radius: 2px 2px 2px 2px;
+	-webkit-border-radius: 2px 2px 2px 2px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.emergente {
+	visibility: visible;
+	z-index: 10;
+	position: fixed;
+	height: 110px;
+	width: 300px;
+	margin-top: -50px;
+	margin-right: -150px;
+	right: 50%;
+	top: 30%;
+	background-image: url(../img/fondo_agenda.png);
+	background-repeat:  repeat-x;
+	background-color: #009999;
+	background-position: bottom;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-bottom: 15px;
+	padding-left: 10px;
+}
+.fondo_blanco_full {
+	height: 100%;
+	width: 100%;
+	background-image: url(../img/fondo_blanco.png);
+	position: fixed;
+	z-index: 2;
+	left: 0px;
+	top: 0px;
+}
+
+
+.fondo_negro {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background-image: url(../img/fondo_fotos.png);
+	left: 0px;
+	top: 0px;
+	overflow: auto;
+}
+
+.fondo_negro_agregar {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background-image: url(../img/fondo_fotos.png);
+	left: 0px;
+	top: 0px;
+	overflow: auto;
+}
+
+.fondo_negro_actualizar {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background-image: url(../img/fondo_fotos.png);
+	left: 0px;
+	top: 0px;
+	overflow: auto;
+}
+
+.fondo_negro_eliminar {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background-image: url(../img/fondo_fotos.png);
+	left: 0px;
+	top: 0px;
+	overflow: auto;
+}
+
+
+.contenedor_formulario_saliente {
+	background-color: #91DA48;
+	padding: 10px;
+	position: fixed;
+	z-index: 1;
+	overflow: auto;
+	width: 500px;
+	right: 50%;
+	margin-right: -250px;
+	top: 20%;
+	background-image: url(../img/fondo_anuncio.png);
+	background-repeat:  repeat-x;
+	background-position: top;
+	-moz-border-radius: 10px; /*esquinas redondas facil*/
+	-webkit-border-radius: 10px; /*esquinas redondas facil*/
+}
+
+.contenedor_formulario_saliente_agregar {
+/*	background-color: #91DA48;*/
+        background-color: #cf2a36;
+        color: #000;
+	padding: 10px;
+	position: fixed;
+	z-index: 1;
+	overflow: auto;
+	width: 500px;
+	right: 50%;
+	margin-right: -250px;
+	top: 20%;
+	background-image: url(../img/fondo_anuncio.png);        
+	background-repeat:  repeat-x;
+	background-position: top;
+	-moz-border-radius: 10px; /*esquinas redondas facil*/
+	-webkit-border-radius: 10px; /*esquinas redondas facil*/
+}
+.contenedor_formulario_saliente_actualizar {
+/*	background-color: #91DA48;*/
+        background-color: #cf2a36;
+        color: #000;
+	padding: 10px;
+	position: fixed;
+	z-index: 1;
+	overflow: auto;
+	width: 500px;
+	right: 50%;
+	margin-right: -250px;
+	top: 20%;
+	background-image: url(../img/fondo_anuncio.png);
+	background-repeat:  repeat-x;
+	background-position: top;
+	-moz-border-radius: 10px; /*esquinas redondas facil*/
+	-webkit-border-radius: 10px; /*esquinas redondas facil*/
+}
+
+.contenedor_formulario_saliente_eliminar {
+/*	background-color: #91DA48;*/
+        background-color: #009999;
+        color: #FFFFFF;
+	padding: 10px;
+	position: fixed;
+	z-index: 1;
+	overflow: auto;
+	width: 500px;
+	right: 50%;
+	margin-right: -250px;
+	top: 20%;
+	background-image: url(../img/fondo_anuncio.png);
+	background-repeat:  repeat-x;
+	background-position: top;
+	-moz-border-radius: 10px; /*esquinas redondas facil*/
+	-webkit-border-radius: 10px; /*esquinas redondas facil*/
+}
+
+.error{
+
+    color: red;
+    font-size: 8pt;
+    font-weight: bold;
+
+}
+input[disabled] {
+    background-color: #EBEBE4;
+}
+input[readonly] {
+    background-color: #EBEBE4;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #666666;
+}
+textarea[readonly] {
+    background-color: #EBEBE4;
+}
+textarea[disabled] {
+    background-color: #EBEBE4;
+}

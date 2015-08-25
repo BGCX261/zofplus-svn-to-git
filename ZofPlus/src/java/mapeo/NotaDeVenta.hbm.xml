@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 26-03-2012 12:57:48 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="mapeo.NotaDeVenta" table="nota_de_venta" schema="public">
+        <id name="nvId" type="long">
+            <column name="nv_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="nvGlosa" type="string">
+            <column name="nv_glosa" length="50" />
+        </property>
+        <property name="nvCodigomoneda" type="string">
+            <column name="nv_codigomoneda" length="3" />
+        </property>
+        <property name="nvFormapago" type="string">
+            <column name="nv_formapago" length="30" />
+        </property>
+        <property name="nvPaisdestino" type="string">
+            <column name="nv_paisdestino" length="30" />
+        </property>
+        <property name="nvCiudaddestino" type="string">
+            <column name="nv_ciudaddestino" length="30" />
+        </property>
+        <property name="nvFecha" type="date">
+            <column name="nv_fecha" length="13" />
+        </property>
+        <property name="nvEstado" type="string">
+            <column name="nv_estado" length="1" />
+        </property>
+        <property name="cliRut" type="string">
+            <column name="cli_rut" length="20" />
+        </property>
+        <property name="totalgralNv" type="java.lang.Double">
+            <column name="totalgral_nv" precision="17" scale="17" />
+        </property>
+        <set name="items" inverse="true">
+            <key>
+                <column name="nv_id" />
+            </key>
+            <one-to-many class="mapeo.Item" />
+        </set>
+        <set name="cabecera201s" inverse="true">
+            <key>
+                <column name="nv_id" not-null="true" />
+            </key>
+            <one-to-many class="mapeo.Cabecera201" />
+        </set>
+    </class>
+</hibernate-mapping>

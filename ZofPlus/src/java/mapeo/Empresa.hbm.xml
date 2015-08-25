@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 26-03-2012 12:57:48 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="mapeo.Empresa" table="empresa" schema="public">
+        <id name="empRut" type="string">
+            <column name="emp_rut" length="20" />
+            <generator class="assigned" />
+        </id>
+        <property name="empNfantasia" type="string">
+            <column name="emp_nfantasia" length="30" />
+        </property>
+        <property name="empRsocial" type="string">
+            <column name="emp_rsocial" length="50" />
+        </property>
+        <property name="empGcomercial" type="string">
+            <column name="emp_gcomercial" length="50" />
+        </property>
+        <property name="empDireccion" type="string">
+            <column name="emp_direccion" length="50" />
+        </property>
+        <property name="empCiudad" type="string">
+            <column name="emp_ciudad" length="50" />
+        </property>
+        <property name="empFono" type="string">
+            <column name="emp_fono" length="20" />
+        </property>
+        <property name="empReplegal" type="string">
+            <column name="emp_replegal" length="15" />
+        </property>
+        <property name="empNomreplegal" type="string">
+            <column name="emp_nomreplegal" length="100" />
+        </property>
+        <property name="empEstado" type="string">
+            <column name="emp_estado" length="1" />
+        </property>
+        <set name="trabajadors" inverse="true">
+            <key>
+                <column name="emp_rut" length="20" not-null="true" />
+            </key>
+            <one-to-many class="mapeo.Trabajador" />
+        </set>
+        <set name="galpons" inverse="true">
+            <key>
+                <column name="emp_rut" length="20" not-null="true" />
+            </key>
+            <one-to-many class="mapeo.Galpon" />
+        </set>
+    </class>
+</hibernate-mapping>
